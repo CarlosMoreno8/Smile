@@ -21,7 +21,7 @@ const Login = ({setUser}) => {
             localStorage.setItem('user',JSON.stringify(res.data))
         //notification.success({message:'Bienvenide',description:'Bienvenide '+user.email})
             setTimeout(() => {
-                history.push('/')
+                history.push('/profile')
             }, 1500);
         })
         .catch(error=>console.log(error))
@@ -35,4 +35,4 @@ const Login = ({setUser}) => {
     )
 }
 
-export default Login
+export default Login;

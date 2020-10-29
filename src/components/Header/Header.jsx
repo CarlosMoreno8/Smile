@@ -11,7 +11,7 @@ import './Header.scss';
     }
     return (
         <header className="header">
-            <Link to="/">Home</Link>
+            
             {/* {props.user ? */}
             {user ?
                 <div className="loggedIn">
@@ -21,6 +21,7 @@ import './Header.scss';
                     <span className="logout" onClick={logout}>Logout</span>
                 </div> :
                 <div className="notLoggedIn">
+                    <Link to="/">Home</Link>
                     <Link to="/login">Login</Link>
                     <Link to="/register">Registro</Link>
                 </div>}
