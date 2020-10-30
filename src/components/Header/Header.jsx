@@ -1,22 +1,34 @@
+import axios from 'axios';
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import './Header.scss';
 
 // const Header = (props) => {
-    const Header = ({user,setUser}) => {
-    const logout = () => {
-        localStorage.clear();
-        // props.setUser(null)
-        setUser(null)
+const Header = ({ user, setUser }) => {
+    const history = useHistory();
+    const logout = async () => {
+        try {
+            const token = user.token;
+            const options = { headers: { Authorization: `Bearer ${token}`}};
+            console.log(user.token, options)
+            const res = await axios.get(process.env.REACT_APP_BASE_URL + '/client/logout', options)
+            console.log(res.data)
+            // props.setUser(null)
+            localStorage.clear();
+            setUser(null)
+            history.push('/')
+        } catch (error) {
+            console.log(error)
+        }
     }
     return (
         <header className="header">
-            
+
             {/* {props.user ? */}
             {user ?
                 <div className="loggedIn">
-                { ['admin'].includes(user.role) &&<Link to="/users">users</Link> }
-                {/* {['doctores','becarios'].includes(user.role) &&<Link to="/pacientes">pacientes</Link> } */}
+                    {['admin'].includes(user.role) && <Link to="/users">users</Link>}
+                    {/* {['doctores','becarios'].includes(user.role) &&<Link to="/pacientes">pacientes</Link> } */}
                     <Link to="/profile">{user.email} - {user.role}</Link>
                     <span className="logout" onClick={logout}>Logout</span>
                 </div> :

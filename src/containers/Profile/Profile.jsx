@@ -4,7 +4,7 @@ import React from 'react'
 const Profile = ({ user }) => {
     return (
         <div className="profile">
-            <h1>{user.name}</h1>
+            <h1>{user.clientname}</h1>
             <h1>{user.email}</h1>
         </div>
     )

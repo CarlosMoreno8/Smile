@@ -14,7 +14,7 @@ function App() {
 
   let initialState = null;
   try {
-    initialState = JSON.parse(localStorage.getItem('client'))
+    initialState = JSON.parse(localStorage.getItem('user'))
     
   } catch (error) {
     console.log(error.message)
@@ -30,7 +30,8 @@ function App() {
       <Header user={user} setUser={setUser} />
 
 <Switch>
-      {user ? <Route path='/profile' exact>
+      {user?.email ? 
+      <Route path='/profile' exact>
         <Profile user={user} setUser={setUser} />
       </Route> :
         <>
@@ -42,7 +43,7 @@ function App() {
         </>
           
         }
-        {user ?  <Redirect to="/profile" /> :  <Redirect to="/" />}
+        {user?.email ?  <Redirect to="/profile" exact /> :  <Redirect to="/" exact />}
 </Switch>
 
       {/* <Footer /> */}
