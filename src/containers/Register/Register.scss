@@ -1,5 +1,4 @@
 @mixin reset-input-button($bg-color, $hover-bg-color) {
-    all: unset;
     padding: 0.8em;
     border-radius: 0.7em;
     border: 1px solid black;
@@ -10,17 +9,14 @@
     }
 }
 
-.login-form {
+.register-form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 2em;
-    min-height: 40vh;
+    min-height: 60vh;
     max-width: 80vw;
-    input {
-        @include reset-input-button(rgb(200, 255, 241), rgb(152, 252, 255));
-    }
     button {
         @include reset-input-button(rgb(18, 247, 255), rgb(0, 197, 204));
         cursor: pointer;
@@ -28,4 +24,9 @@
      ::placeholder {
         color: black;
     }
+}
+
+.inputreg {
+    width: 50em;
+    @include reset-input-button(rgb(200, 255, 241), rgb(152, 252, 255));
 }

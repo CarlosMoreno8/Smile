@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
 import './Login.scss';
-//import {notification} from 'antd'
 // const Login = (props) => {
     
 const Login = ({setUser}) => {
@@ -19,7 +18,6 @@ const Login = ({setUser}) => {
             setUser(res.data) //seteo el user como estado del App.js
         //localStorage.setItem('authToken',res.data.token);
             localStorage.setItem('user',JSON.stringify(res.data))
-        //notification.success({message:'Bienvenide',description:'Bienvenide '+user.email})
             setTimeout(() => {
                 history.push('/profile')
             }, 1500);
