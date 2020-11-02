@@ -8,6 +8,7 @@ import Register from './containers/Register/Register';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 import Profile from './containers/Profile/Profile';
+import Appointments from './containers/Appointments/Appointments';
 
 
 function App() {
@@ -31,10 +32,12 @@ function App() {
       <Header user={user} setUser={setUser} />
 
 <Switch>
-      {user?.email ? 
+      {user?.email ?
+      <> 
       <Route path='/profile' exact>
         <Profile user={user} setUser={setUser} />
-      </Route> :
+      </Route>
+      <Route path='/appointments' component={Appointments} exact/> </>:
         <>
         <Route path='/' component={Home} exact />
           <Route path='/login' exact >

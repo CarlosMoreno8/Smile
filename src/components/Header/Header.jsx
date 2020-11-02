@@ -27,8 +27,7 @@ const Header = ({ user, setUser }) => {
             {/* {props.user ? */}
             {user ?
                 <div className="loggedIn">
-                    {/*['admin'].includes(user.role) && <Link to="/users">users</Link>*/}
-                    {/* {['doctores','becarios'].includes(user.role) &&<Link to="/pacientes">pacientes</Link> } */}
+                    <Link to="/appointments">Citas</Link>
                     <Link to="/profile">{user.email} - {user.role}</Link>
                     <span className="logout" onClick={logout}>Logout</span>
                 </div> :

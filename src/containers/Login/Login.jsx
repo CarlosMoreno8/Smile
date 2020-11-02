@@ -16,7 +16,7 @@ const Login = ({setUser}) => {
         .then(res=>{
         // props.setUser(res.data.user) //seteo el user como estado del App.js
             setUser(res.data) //seteo el user como estado del App.js
-        //localStorage.setItem('authToken',res.data.token);
+            localStorage.setItem('authToken',res.data.token);
             localStorage.setItem('user',JSON.stringify(res.data))
             setTimeout(() => {
                 history.push('/profile')
