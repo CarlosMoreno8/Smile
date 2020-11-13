@@ -14,8 +14,8 @@
   - npm start
 
 - Deploy ☁
-  - El backend está deployado en Heroku.
-  - El frontend está deployado en Heroku.
+  - El backend está deployado en Heroku. 
+  - El frontend está deployado en Heroku. https://react-heroku-joker.herokuapp.com/
 
 - All endpoints ⚫
 ```
