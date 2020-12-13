@@ -14,13 +14,13 @@ const Register = () => {
             email:event.target.email.value,
             password:event.target.password.value
         };
-        axios.post(process.env.REACT_APP_BASE_URL+'/client/register',body)
+        axios.post('http://localhost:8000/api/users',body)
         .then(res=>{
             setTimeout(() => {
                 history.push('/')
             }, 1500);
         })
-        .catch(error=>console.log(error))
+        .catch(error=>console.log(error.response))
     }
     return (
         <form className="register-form" onSubmit={handleSubmit}>
